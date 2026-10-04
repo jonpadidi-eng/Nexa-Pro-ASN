@@ -75,13 +75,15 @@ export default function App() {
 
   // Job field state: check if user already selected a unit
   const [selectedJobField, setSelectedJobField] = useState<string>(() => {
-    try {
-      const saved = localStorage.getItem(JOB_FIELD_KEY);
-      if (saved) return saved;
-    } catch {
-      // ignore
+  try {
+    const saved = localStorage.getItem(JOB_FIELD_KEY);
+    if (saved && saved !== 'null' && saved !== 'undefined' && saved.trim() !== '') {
+      return saved;
     }
-    return 'auditor';
+  } catch {
+    // ignore
+  }
+  return 'auditor';
   });
 
   // Modal open on first launch if user hasn't chosen a unit yet
