@@ -128,15 +128,20 @@ export default function App() {
     setIsActivationModalOpen(true);
   };
 
-  const [dataPackage, setDataPackage] = useState<ProAsnDataPackage>(() => {
+ const [dataPackage, setDataPackage] = useState<ProAsnDataPackage>(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) {
+      if (saved && saved !== 'null' && saved !== 'undefined') {
         const parsed = JSON.parse(saved);
-        return normalizeDataPackage(parsed);
+        if (parsed && typeof parsed === 'object') {
+          return normalizeDataPackage(parsed);
+        }
       }
     } catch (e) {
-      console.warn('Fallback to initial Pro ASN data:', e);
+      console.warn("Fallback to initial Pro ASN data:", e);
+      try {
+        localStorage.removeItem(STORAGE_KEY);
+      } catch (_) {}
     }
     return initialProAsnData;
   });
