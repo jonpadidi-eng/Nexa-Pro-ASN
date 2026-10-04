@@ -1,0 +1,8 @@
+{
+  "name": "Remix Remix Bank Soal Pro ASN - Engine Pengolah Data \u0026 PWA",
+  "description": "Engine Pengolah Data, Arsitek Konten, dan PWA Bank Soal Pro ASN: konversi dokumen Modul Ajar, Soal Umum 4 Subtes (KM-SK, POT, LD, PK), dan Soal Teknis ke JSON valid dan CAT simulator.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
