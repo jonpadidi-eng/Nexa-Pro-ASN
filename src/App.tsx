@@ -165,6 +165,8 @@ export default function App() {
 
   const handleSelectField = (fieldId: string) => {
     setSelectedJobField(fieldId);
+    const handleSelectField = (fieldId: string) => {
+    setSelectedJobField(fieldId);
     try {
       localStorage.setItem(JOB_FIELD_KEY, fieldId);
     } catch {
@@ -172,9 +174,6 @@ export default function App() {
     }
     setIsFieldModalOpen(false);
   };
-
-  const handleToggleOwnerMode = (enable: boolean) => {
-    setIsOwnerMode(enable);
     try {
       localStorage.setItem(OWNER_MODE_KEY, enable ? 'true' : 'false');
     } catch {
